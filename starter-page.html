@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kalender Agenda & Libur Nasional</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 1rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .nav {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .nav button {
+      margin: 0 10px;
+      padding: 6px 12px;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      background-color: #3db9b2;
+      color: white;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .day-name {
+      font-weight: bold;
+      text-align: center;
+      background-color: #3db9b2;
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .day {
+      min-height: 80px;
+      background-color: white;
+      padding: 6px;
+      border-radius: 10px;
+      border: 1px solid #eee;
+      position: relative;
+    }
+
+    .day.sunday {
+      background-color: #f28b82;
+      color: white;
+    }
+
+    .day.saturday {
+      background-color: #fdd58b;
+    }
+
+    .date {
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .event {
+      background-color: #e1f5fe;
+      padding: 4px 6px;
+      font-size: 12px;
+      border-left: 4px solid #0288d1;
+      border-radius: 4px;
+      color: #0277bd;
+      margin-bottom: 4px;
+    }
+
+    .holiday {
+      background-color: #ffd6d6;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Kalender Agenda & Hari Libur</h1>
+
+<div class="nav">
+  <button onclick="changeMonth(-1)">← Sebelumnya</button>
+  <span id="month-year"></span>
+  <button onclick="changeMonth(1)">Berikutnya →</button>
+</div>
+
+<div class="calendar" id="calendar">
+  <!-- Hari dan tanggal akan dirender via JavaScript -->
+</div>
+
+<script>
+  const calendarEl = document.getElementById("calendar");
+  const monthYearEl = document.getElementById("month-year");
+
+  const calendarPersonal = "saeful6612@gmail.com";
+  const calendarHoliday = "id.indonesian#holiday@group.v.calendar.google.com";
+  const apiKey = "AIzaSyCvYCSTyFmtGewbRphtdMhOItWdjOUxkcQ";
+
+  const dayNames = ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"];
+  let currentDate = new Date();
+
+  function render() {
+    calendarEl.innerHTML = "";
+    monthYearEl.textContent = currentDate.toLocaleDateString("id-ID", { month: "long", year: "numeric" });
+
+    // Nama hari
+    dayNames.forEach(name => {
+      const div = document.createElement("div");
+      div.className = "day-name";
+      div.textContent = name;
+      calendarEl.appendChild(div);
+    });
+
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+
+    const start = new Date(year, month, 1);
+    const end = new Date(year, month + 1, 0);
+    const startDay = start.getDay();
+    const daysInMonth = end.getDate();
+
+    // Kosongkan slot sebelum tanggal 1
+    for (let i = 0; i < startDay; i++) {
+      calendarEl.appendChild(document.createElement("div"));
+    }
+
+    const eventsByDate = {};
+
+    const fetchEvents = (calendarId) =>
+      fetch(`https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?key=${apiKey}&timeMin=${start.toISOString()}&timeMax=${end.toISOString()}&singleEvents=true&orderBy=startTime`)
+        .then(res => res.json())
+        .then(data => {
+          (data.items || []).forEach(event => {
+            const date = new Date(event.start.date || event.start.dateTime);
+            const day = date.getDate();
+            if (!eventsByDate[day]) eventsByDate[day] = [];
+            eventsByDate[day].push({ summary: event.summary, isHoliday: calendarId === calendarHoliday });
+          });
+        });
+
+    Promise.all([fetchEvents(calendarPersonal), fetchEvents(calendarHoliday)]).then(() => {
+      for (let day = 1; day <= daysInMonth; day++) {
+        const date = new Date(year, month, day);
+        const div = document.createElement("div");
+        div.className = "day";
+        if (date.getDay() === 0) div.classList.add("sunday");
+        if (date.getDay() === 6) div.classList.add("saturday");
+
+        const dateDiv = document.createElement("div");
+        dateDiv.className = "date";
+        dateDiv.textContent = day;
+        div.appendChild(dateDiv);
+
+        if (eventsByDate[day]) {
+          eventsByDate[day].forEach(event => {
+            const eventDiv = document.createElement("div");
+            eventDiv.className = "event";
+            if (event.isHoliday) eventDiv.classList.add("holiday");
+            eventDiv.textContent = event.summary;
+            div.appendChild(eventDiv);
+          });
+        }
+
+        calendarEl.appendChild(div);
+      }
+    });
+  }
+
+  function changeMonth(direction) {
+    currentDate.setMonth(currentDate.getMonth() + direction);
+    render();
+  }
+
+  render();
+</script>
+
+</body>
+</html>
