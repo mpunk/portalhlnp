@@ -1,46 +1,37 @@
+        h2 {
+          text-align: center;
+          margin-bottom: 10px;
+          font-size: 24px;
+          
+        }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background: #f4f6f9;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 10px;
-      font-size: 24px;
-      
-    }
-
-    .controls {
-      text-align: center;
+    .nav {
+      display: flex;
+      justify-content: center; /* posisi horizontal di tengah */
+      gap: 10px; /* jarak antar tombol */
       margin-bottom: 20px;
     }
 
-    .nav {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
     .nav button {
-      margin: 0 10px;
-      padding: 6px 12px;
+      margin: 0;
+      padding: 10px 20px;
       font-size: 1rem;
       cursor: pointer;
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
       background-color: #3db9b2;
       color: white;
+      transition: 0.3s;
+    }
+
+    .nav button:hover {
+      background-color: #329d97;
     }
 
     .calendar {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      gap: 8px;
+      gap: 3px;
       max-width: 1000px;
       margin: auto;
     }
@@ -51,14 +42,14 @@
       background-color: #3db9b2;
       color: white;
       padding: 10px;
-      border-radius: 8px;
+      border-radius: 7px;
     }
 
     .day {
       min-height: 80px;
       background-color: white;
       padding: 6px;
-      border-radius: 10px;
+      border-radius: 7px;
       border: 1px solid #eee;
       position: relative;
     }
@@ -80,7 +71,7 @@
     .event {
       background-color: #e1f5fe;
       padding: 4px 6px;
-      font-size: 12px;
+      font-size: 10px;
       border-left: 4px solid #0288d1;
       border-radius: 4px;
       color: #0277bd;
@@ -90,17 +81,7 @@
     .holiday {
       background-color: #ffd6d6;
     }
-    @media (max-width: 768px) {
-      .calendar {
-        grid-template-columns: repeat(7, 1fr);
-        gap: 6px;
-      }
-      .cell {
-        min-height: 60px;
-        font-size: 12px;
-      }
-    }
-
+    
     .section-title h2 {
       font-weight: bold;
       color: #343a40;
