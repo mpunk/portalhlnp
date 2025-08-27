@@ -5,12 +5,10 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Portal Subbagian HLN/P</title>
   <script src="https://code.highcharts.com/highcharts.js"></script>
-
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
   <meta name="description" content="">
   <meta name="keywords" content="">
-<style>
 
-</style>
   <!-- Favicons -->
   <link href="assets/img/hero-carousel/BPKlogo.png" rel="icon">
   <link href="assets/img/hero-carousel/BPKlogo.png" rel="apple-touch-icon">
@@ -28,11 +26,9 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
-  <link href="assets/css/bahri.css" rel="stylesheet">
+  <link href="assets/css/custom.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
 
-
-</style>
   <!-- =======================================================
   * Template Name: Shuffle
   * Template URL: https://bootstrapmade.com/bootstrap-3-one-page-template-free-shuffle/
@@ -48,23 +44,25 @@
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
     <img src="assets/img/bpkri.png" width="27%">
 
+
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="#hero" class="active">Beranda</a></li>
-          <li><a href="#about">Tugas dan Fungsi</a></li>
+          <li><a href="#about">Tugas & Fungsi</a></li>
           <li><a href="#stats">Anggaran</a></li>
           <li><a href="#services">Agenda</a></li>
           <li><a href="#portfolio">Produk</a></li>
-          <li><a href="#team">Struktur Organisasi</a></li>
+          <li><a href="#team">Team</a></li>
           <li class="dropdown"><a href="#"><span>Stakeholder</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="stakeholder/lembaga.html">Lembaga Negara</a></li>
-              <li><a href="stakeholder/kementerian.html">Kementerian</a></li>
-              <li><a href="stakeholder/lpnk.html">Lembaga Pemerintah Non Kementrian</a></li>
-              <li><a href="stakeholder/ptk.html">Perguruan Tinggi Kedinasan</a></li>
-              <li><a href="stakeholder/bumn.html">Badan Usaha Milik Negara</a></li>
+              <li><a href="https://portal.bpk.go.id/sites/birohumasln/hal/hlnp/pages/lembaganegara.aspx">Lembaga Negara</a></li>
+              <li><a href="https://portal.bpk.go.id/sites/birohumasln/hal/hlnp/pages/Kementerian.aspx">Kementerian</a></li>
+              <li><a href="https://portal.bpk.go.id/sites/birohumasln/hal/hlnp/pages/Non_Kementerian.aspx">Lembaga Pemerintah Non Kementrian</a></li>
+              <li><a href="https://portal.bpk.go.id/sites/birohumasln/hal/hlnp/Pages/perguruan.aspx">Perguruan Tinggi Kedinasan</a></li>
+              <li><a href="https://portal.bpk.go.id/sites/birohumasln/hal/hlnp/Pages/BUMN.aspx">Badan Usaha Milik Negara</a></li>
             </ul>
           </li>
+          <li><a href="#contact">Laptah</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -80,13 +78,47 @@
       <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
 
         <div class="carousel-item active">
-          <img src="assets/img/hero-carousel/gedung3.JPG" alt="">
+            <video autoplay muted loop playsinline>
+              <source src="assets/video/JCC.mp4" type="video/mp4">
+              Browser Anda tidak mendukung video.
+            </video>
           <div class="carousel-container">
-            <h2>PORTAL SUBBAGIAN HUBUNGAN LEMBAGA NEGARA/PEMERINTAH</h2>
+            <h2 id="teksAnimasi">
+              SELAMAT DATANG
+            </h2>          
           </div>
         </div><!-- End Carousel Item -->
       </div>
+  <script>
+    const teks = document.getElementById('teksAnimasi');
+    const daftarTeks = [
+      "SELAMAT DATANG",
+      "DI",
+      "PORTAL",
+      "SUBBAGIAN HUBUNGAN LEMBAGA NEGARA/PEMERINTAH"
+    ];
+    var jalan = 0;
 
+    function tampilkanTeks() {
+      // Fade out
+      teks.style.opacity = 0;
+
+      setTimeout(() => {
+        // Ganti teks setelah fade out
+        jalan = (jalan + 1) % daftarTeks.length;
+        teks.textContent = daftarTeks[jalan];
+
+        // Fade in
+        teks.style.opacity = 1;
+      }, 1000); // jeda sesuai durasi transition (1s)
+    }
+
+    // Awal tampil
+    teks.style.opacity = 1;
+
+    // Ganti teks setiap 3 detik
+    setInterval(tampilkanTeks, 2000);
+  </script>
     </section><!-- /Hero Section -->
 
     <!-- About Section -->
@@ -104,23 +136,12 @@
       <!-- Carousel Gambar -->
       <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
         <div id="photoCarousel" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner rounded shadow">
-            <div class="carousel-item active">
-              <img src="assets/img/hero-carousel/jcc.jpeg" class="d-block w-100" alt="Foto 1">
-            </div>
-            <div class="carousel-item">
-              <img src="assets/img/hero-carousel/tim.jpg" class="d-block w-100" alt="Foto 2">
-            </div>
-            <div class="carousel-item">
-              <img src="assets/img/hero-carousel/tim2.jpeg" class="d-block w-100" alt="Foto 3">
-            </div>
+          <div>
+            <video autoplay muted loop playsinline style="width:120%; border-radius:10px; overflow:hidden;"">
+              <source src="assets/video/BPK REV 6.mp4" type="video/mp4">
+              Browser Anda tidak mendukung video.
+            </video>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#photoCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#photoCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-          </button>
         </div>
       </div>
 
@@ -290,105 +311,110 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Agenda</h2>
-        <p>Subbagian Hubungan Lembaga Negara/Pemerintah</p>
-        <p><strong><span id="month-year"></span></strong></p>
+        <p>  <span id="month-year"></span></p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up">
-        <div class="nav">
-          <button onclick="changeMonth(-1)">← Sebelumnya</button>
-          <button onclick="changeMonth(1)">Berikutnya →</button>
+
+        <div class="row gy-4">
+  
+
+<div class="nav">
+  <button onclick="changeMonth(-1)">← Sebelumnya</button>
+  <button onclick="changeMonth(1)">Berikutnya →</button>
+</div>
+
+<div class="calendar" id="calendar">
+  <!-- Hari dan tanggal akan dirender via JavaScript -->
+</div>
+
+<script>
+  const calendarEl = document.getElementById("calendar");
+  const monthYearEl = document.getElementById("month-year");
+
+  const calendarPersonal = "subbaghlnp@gmail.com";
+  const calendarHoliday = "id.indonesian#holiday@group.v.calendar.google.com";
+  const apiKey = "AIzaSyACpn2FJCCbk4gZlYVnzwDBR-d22Mym1QE";
+
+  const dayNames = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+  let currentDate = new Date();
+
+  function render() {
+    calendarEl.innerHTML = "";
+    monthYearEl.textContent = currentDate.toLocaleDateString("id-ID", { month: "long", year: "numeric" });
+
+    // Nama hari
+    dayNames.forEach(name => {
+      const div = document.createElement("div");
+      div.className = "day-name";
+      div.textContent = name;
+      calendarEl.appendChild(div);
+    });
+
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+
+    const start = new Date(year, month, 1);
+    const end = new Date(year, month + 1, 0);
+    const startDay = start.getDay();
+    const daysInMonth = end.getDate();
+
+    // Kosongkan slot sebelum tanggal 1
+    for (let i = 0; i < startDay; i++) {
+      calendarEl.appendChild(document.createElement("div"));
+    }
+
+    const eventsByDate = {};
+
+    const fetchEvents = (calendarId) =>
+      fetch(`https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?key=${apiKey}&timeMin=${start.toISOString()}&timeMax=${end.toISOString()}&singleEvents=true&orderBy=startTime`)
+        .then(res => res.json())
+        .then(data => {
+          (data.items || []).forEach(event => {
+            const date = new Date(event.start.date || event.start.dateTime);
+            const day = date.getDate();
+            if (!eventsByDate[day]) eventsByDate[day] = [];
+            eventsByDate[day].push({ summary: event.summary, isHoliday: calendarId === calendarHoliday });
+          });
+        });
+
+    Promise.all([fetchEvents(calendarPersonal), fetchEvents(calendarHoliday)]).then(() => {
+      for (let day = 1; day <= daysInMonth; day++) {
+        const date = new Date(year, month, day);
+        const div = document.createElement("div");
+        div.className = "day";
+        if (date.getDay() === 0) div.classList.add("sunday");
+        if (date.getDay() === 6) div.classList.add("saturday");
+
+        const dateDiv = document.createElement("div");
+        dateDiv.className = "date";
+        dateDiv.textContent = day;
+        div.appendChild(dateDiv);
+
+        if (eventsByDate[day]) {
+          eventsByDate[day].forEach(event => {
+            const eventDiv = document.createElement("div");
+            eventDiv.className = "event";
+            if (event.isHoliday) eventDiv.classList.add("holiday");
+            eventDiv.textContent = event.summary;
+            div.appendChild(eventDiv);
+          });
+        }
+
+        calendarEl.appendChild(div);
+      }
+    });
+  }
+
+  function changeMonth(direction) {
+    currentDate.setMonth(currentDate.getMonth() + direction);
+    render();
+  }
+
+  render();
+</script>
         </div>
 
-        <div class="calendar" id="calendar">
-          <!-- Hari dan tanggal akan dirender via JavaScript -->
-        </div>
-
-        <script>
-          const calendarEl = document.getElementById("calendar");
-          const monthYearEl = document.getElementById("month-year");
-
-          const calendarPersonal = "subbaghlnp@gmail.com";
-          const calendarHoliday = "id.indonesian#holiday@group.v.calendar.google.com";
-          const apiKey = "AIzaSyACpn2FJCCbk4gZlYVnzwDBR-d22Mym1QE";
-
-          const dayNames = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
-          let currentDate = new Date();
-
-          function render() {
-            calendarEl.innerHTML = "";
-            monthYearEl.textContent = currentDate.toLocaleDateString("id-ID", { month: "long", year: "numeric" });
-
-            // Nama hari
-            dayNames.forEach(name => {
-              const div = document.createElement("div");
-              div.className = "day-name";
-              div.textContent = name;
-              calendarEl.appendChild(div);
-            });
-
-            const year = currentDate.getFullYear();
-            const month = currentDate.getMonth();
-
-            const start = new Date(year, month, 1);
-            const end = new Date(year, month + 1, 0);
-            const startDay = start.getDay();
-            const daysInMonth = end.getDate();
-
-            // Kosongkan slot sebelum tanggal 1
-            for (let i = 0; i < startDay; i++) {
-              calendarEl.appendChild(document.createElement("div"));
-            }
-
-            const eventsByDate = {};
-
-            const fetchEvents = (calendarId) =>
-              fetch(`https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?key=${apiKey}&timeMin=${start.toISOString()}&timeMax=${end.toISOString()}&singleEvents=true&orderBy=startTime`)
-                .then(res => res.json())
-                .then(data => {
-                  (data.items || []).forEach(event => {
-                    const date = new Date(event.start.date || event.start.dateTime);
-                    const day = date.getDate();
-                    if (!eventsByDate[day]) eventsByDate[day] = [];
-                    eventsByDate[day].push({ summary: event.summary, isHoliday: calendarId === calendarHoliday });
-                  });
-                });
-
-            Promise.all([fetchEvents(calendarPersonal), fetchEvents(calendarHoliday)]).then(() => {
-              for (let day = 1; day <= daysInMonth; day++) {
-                const date = new Date(year, month, day);
-                const div = document.createElement("div");
-                div.className = "day";
-                if (date.getDay() === 0) div.classList.add("sunday");
-                if (date.getDay() === 6) div.classList.add("saturday");
-
-                const dateDiv = document.createElement("div");
-                dateDiv.className = "date";
-                dateDiv.textContent = day;
-                div.appendChild(dateDiv);
-
-                if (eventsByDate[day]) {
-                  eventsByDate[day].forEach(event => {
-                    const eventDiv = document.createElement("div");
-                    eventDiv.className = "event";
-                    if (event.isHoliday) eventDiv.classList.add("holiday");
-                    eventDiv.textContent = event.summary;
-                    div.appendChild(eventDiv);
-                  });
-                }
-
-                calendarEl.appendChild(div);
-              }
-            });
-          }
-
-          function changeMonth(direction) {
-            currentDate.setMonth(currentDate.getMonth() + direction);
-            render();
-          }
-
-          render();
-        </script>
       </div>
 
     </section><!-- /Services Section -->
@@ -681,85 +707,43 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Kontak Kami</h2>
+        <h2>Laporan Tahunan</h2>
         <p>Subbagian Hubungan Lembaga Negara/Pemerintah</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row gy-4">
-
-          <div class="col-lg-6">
-
-<div class="row gy-4 d-flex align-items-stretch">
-  <div class="col-md-6 d-flex">
-    <div class="info-item h-100 w-100" data-aos="fade" data-aos-delay="200">
-      <i class="bi bi-geo-alt"></i>
-      <h3>Alamat</h3>
-      <p>Jl. Gatot Subroto No.Kav. 31, Bend. Hilir, Kecamatan Tanah Abang, Kota Jakarta Pusat</p>
-      <p>Gedung Menara 7 Lantai 5 (Biro Humas)</p>
+  <div class="slideshow-container" data-aos="fade-up">
+    <div class="slides">
+      <div class="slide"><a href="https://online.fliphtml5.com/laptahhlnp/cddg/index.html" target="_blank"><img src="assets/img/laptah/laptah2024.png" alt="Laporan 1"></a></div>
+      <div class="slide"><a href="https://online.fliphtml5.com/laptahhlnp/lvss/index.html" target="_blank"><img src="assets/img/laptah/laptah2023.png" alt="Laporan 2"></a></div>
+      <div class="slide"><a href="https://online.fliphtml5.com/laptahhlnp/qqhk/index.html" target="_blank"><img src="assets/img/laptah/laptah2022.png" alt="Laporan 1"></a></div>
+      <div class="slide"><a href="https://online.fliphtml5.com/laptahhlnp/wnur/index.html" target="_blank"><img src="assets/img/laptah/laptah2021.png" alt="Laporan 1"></a></div>
+      <div class="slide"><img src="assets/img/laptah/laptah2020.png" alt="Laporan 5"></div>
+      <div class="slide"><a href="https://online.fliphtml5.com/laptahhlnp/lvss/index.html"><img src="assets/img/laptah/laptah2019.png" alt="Laporan 6"></a></div>
+      <div class="slide"><img src="assets/img/laptah/laptah20181.png" alt="Laporan 7"></div>
+      <div class="slide"><img src="assets/img/laptah/laptah2017.png" alt="Laporan 8"></div>
     </div>
+    <!-- Tombol Navigasi -->
+    <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+    <a class="next" onclick="moveSlide(1)">&#10095;</a>
   </div>
+</section>
+    <script>
+      let index = 0;
+      const slides = document.querySelector('.slides');
+      const totalSlides = document.querySelectorAll('.slide').length;
+      const visibleSlides = 4; // jumlah gambar yg tampil sekaligus
 
-  <div class="col-md-6 d-flex">
-    <div class="info-item h-100 w-100" data-aos="fade" data-aos-delay="300">
-      <i class="bi bi-telephone"></i>
-      <h3>Telp.</h3>
-      <p>(021)25549000 ext.1200</p>
-    </div>
-  </div>
-
-  <div class="col-md-6 d-flex">
-    <div class="info-item h-100 w-100" data-aos="fade" data-aos-delay="400">
-      <i class="bi bi-envelope"></i>
-      <h3>Email</h3>
-      <p>hlnp@bpk.go.id</p>
-    </div>
-  </div>
-
-  <div class="col-md-6 d-flex">
-    <div class="info-item h-100 w-100" data-aos="fade" data-aos-delay="500">
-      <i class="bi bi-clock"></i>
-      <h3>Jam Kerja</h3>
-      <p>Senin - Jumat</p>
-      <p>07.30 WIB - 16.00 WIB</p>
-    </div>
-  </div>
-</div>
-          </div>
-
-          <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Nama" required="">
-                </div>
-
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Email" required="">
-                </div>
-
-                <div class="col-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subjek" required="">
-                </div>
-
-                <div class="col-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Pesan" required=""></textarea>
-                </div>
-
-                <div class="col-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Kirim Pesan</button>
-                </div>
-
-              </div>
-            </form>
-          </div><!-- End Contact Form -->
-
+      function moveSlide(step) {
+        index = (index + step + totalSlides) % totalSlides;
+        if (index > totalSlides - visibleSlides) {
+          index = 0; // reset kalau habis
+        }
+        slides.style.transform = `translateX(${-index * (100 / visibleSlides)}%)`;
+      }
+    </script>
         </div>
 
       </div>
@@ -792,7 +776,7 @@
         <div class="col-lg-2 col-6 footer-links">
           <h4>Links</h4>
           <ul>
-            <li><a href="https://ihps.bpk.go.id/Account/Login?ReturnUrl=%2F" target="_blank"">Portal IHPS</a></li>
+            <li><a href="https://ihps.bpk.go.id/Account/Login?ReturnUrl=%2F" target="_blank">Portal IHPS</a></li>
             <li><a href="https://mou.bpk.go.id/login" target="_blank">Simou</a></li>
             <li><a href="https://simfoni.dpr.go.id/index.php/login">Simfoni</a></li>
             <li><a href="https://siperdana.dpr.go.id/">Siperdana</a></li>
