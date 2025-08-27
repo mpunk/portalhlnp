@@ -55,8 +55,8 @@
           <li><a href="#team">Team</a></li>
           <li class="dropdown"><a href="#"><span>Stakeholder</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="https://portal.bpk.go.id/sites/birohumasln/hal/hlnp/pages/lembaganegara.aspx">Lembaga Negara</a></li>
-              <li><a href="https://portal.bpk.go.id/sites/birohumasln/hal/hlnp/pages/Kementerian.aspx">Kementerian</a></li>
+              <li><a href="stakeholder/lembaga.html">Lembaga Negara</a></li>
+              <li><a href="stakeholder/kementerian.html">Kementerian</a></li>
               <li><a href="https://portal.bpk.go.id/sites/birohumasln/hal/hlnp/pages/Non_Kementerian.aspx">Lembaga Pemerintah Non Kementrian</a></li>
               <li><a href="https://portal.bpk.go.id/sites/birohumasln/hal/hlnp/Pages/perguruan.aspx">Perguruan Tinggi Kedinasan</a></li>
               <li><a href="https://portal.bpk.go.id/sites/birohumasln/hal/hlnp/Pages/BUMN.aspx">Badan Usaha Milik Negara</a></li>
@@ -78,17 +78,10 @@
       <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
 
         <div class="carousel-item active">
-          <video 
-            autoplay 
-            muted 
-            loop 
-            playsinline 
-            controlslist="nodownload noplaybackrate" 
-            style="width:100%; border-radius:12px; overflow:hidden; pointer-events:none;"
-            oncontextmenu="return false;">
-            <source src="https://www.dropbox.com/scl/fi/bnu368cpgyrjmq6kkf7c3/JCC.mp4?rlkey=lmh5f3612iw8bdm6ckjnik33c&st=amqqhxef&raw=1" type="video/mp4">
-            Browser Anda tidak mendukung video.
-          </video>
+            <video autoplay muted loop playsinline>
+              <source src="https://www.dropbox.com/scl/fi/bnu368cpgyrjmq6kkf7c3/JCC.mp4?rlkey=lmh5f3612iw8bdm6ckjnik33c&st=amqqhxef&raw=1" type="video/mp4">
+              Browser Anda tidak mendukung video.
+            </video>
           <div class="carousel-container">
             <h2 id="teksAnimasi">
               SELAMAT DATANG
@@ -766,61 +759,54 @@
 
   </main>
 
-  <footer id="footer" class="footer dark-background">
+<footer id="footer" class="footer dark-background">
+  <div class="footer-overlay"></div> <!-- overlay untuk peta -->
 
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-5 col-md-12 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Biro Humas dan Kerja Sama Internasional</span>
-          </a>
-          <p><h5>Subbagian Hubungan Lembaga Negara/Pemerintah</h5></p>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-          </div>
+  <div class="container footer-top">
+    <div class="row gy-4">
+      <div class="col-lg-5 col-md-12 footer-about">
+        <a href="index.html" class="logo d-flex align-items-center">
+          <span class="sitename">Biro Humas dan Kerja Sama Internasional</span>
+        </a>
+        <p><h5>Subbagian Hubungan Lembaga Negara/Pemerintah</h5></p>
+        <div class="social-links d-flex mt-4">
+          <a href=""><i class="bi bi-twitter-x"></i></a>
+          <a href=""><i class="bi bi-facebook"></i></a>
+          <a href=""><i class="bi bi-instagram"></i></a>
+          <a href=""><i class="bi bi-linkedin"></i></a>
         </div>
+      </div>
 
-        <div class="col-lg-2 col-6 footer-links">
+      <div class="col-lg-2 col-6 footer-links"></div>
 
-        </div>
+      <div class="col-lg-2 col-6 footer-links">
+        <h4>Links</h4>
+        <ul>
+          <li><a href="https://ihps.bpk.go.id/Account/Login?ReturnUrl=%2F" target="_blank">Portal IHPS</a></li>
+          <li><a href="https://mou.bpk.go.id/login" target="_blank">Simou</a></li>
+          <li><a href="https://simfoni.dpr.go.id/index.php/login">Simfoni</a></li>
+          <li><a href="https://siperdana.dpr.go.id/">Siperdana</a></li>
+        </ul>
+      </div>
 
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Links</h4>
-          <ul>
-            <li><a href="https://ihps.bpk.go.id/Account/Login?ReturnUrl=%2F" target="_blank">Portal IHPS</a></li>
-            <li><a href="https://mou.bpk.go.id/login" target="_blank">Simou</a></li>
-            <li><a href="https://simfoni.dpr.go.id/index.php/login">Simfoni</a></li>
-            <li><a href="https://siperdana.dpr.go.id/">Siperdana</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-          <h4>Kontak Kami</h4>
-          <p>Gedung Menara 7 Lantai 5 BPK RI</p>
-          <p>Jl. Jend. Gatot Subroto Kav 31</p>
-          <p>Jakarta</p>
-          <p class="mt-4">Telp:<span> (021)25549000 ext.1200</span></p>
-          <p>Email: <span>hlnp@bpk.go.id</span></p>
-        </div>
-
+      <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+        <h4>Kontak Kami</h4>
+        <p>Gedung Menara 7 Lantai 5 BPK RI</p>
+        <p>Jl. Jend. Gatot Subroto Kav 31</p>
+        <p>Jakarta</p>
+        <p class="mt-4">Telp:<span> (021)25549000 ext.1200</span></p>
+        <p>Email: <span>hlnp@bpk.go.id</span></p>
       </div>
     </div>
+  </div>
 
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright </span><b>Subbagian Hubungan Lembaga Negara/Pemerintah</b></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="#">Subbagian Hubungan Lembaga Negara/Pemerintah</a>
-      </div>
+  <div class="container copyright text-center mt-4">
+    <p>© <span>Copyright </span><b>Subbagian Hubungan Lembaga Negara/Pemerintah</b></p>
+    <div class="credits">
+      Designed by <a href="#">Subbagian Hubungan Lembaga Negara/Pemerintah</a>
     </div>
-
-  </footer>
+  </div>
+</footer>
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
